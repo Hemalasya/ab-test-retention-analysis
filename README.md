@@ -1,4 +1,4 @@
-\# Mobile Game A/B Test: Does Moving the Progress Gate Hurt Retention?
+﻿\# Mobile Game A/B Test: Does Moving the Progress Gate Hurt Retention?
 
 
 
@@ -10,11 +10,11 @@ Cookie Cats tested moving its first progress gate from level 30 to level 40. Did
 
 \## Data
 
-\- 90,189 players randomly assigned to `gate\_30` (control) or `gate\_40` (test)
+\- 90,189 players randomly assigned to `gate_30` (control) or `gate_40` (test)
 
-\- Columns: `userid`, `version`, `sum\_gamerounds` (first 14 days), `retention\_1`, `retention\_7`
+\- Columns: `userid`, `version`, `sum_gamerounds` (first 14 days), `retention_1`, `retention_7`
 
-\- Source: \[Kaggle – Mobile Games A/B Testing: Cookie Cats](https://www.kaggle.com/) (download and place `cookie\_cats.csv` in `data/`)
+\- Source: \[Kaggle â€“ Mobile Games A/B Testing: Cookie Cats](https://www.kaggle.com/datasets/mursideyarkin/mobile-games-ab-testing-cookie-cats) (download and place `cookie_cats.csv` in `data/`)
 
 
 
@@ -28,7 +28,7 @@ Cookie Cats tested moving its first progress gate from level 30 to level 40. Did
 
 4\. \*\*SQL segmentation (DuckDB):\*\* engagement segments with window functions and weighted contribution analysis
 
-5\. \*\*Hypothesis testing:\*\* two-proportion z-tests (α = 0.05)
+5\. \*\*Hypothesis testing:\*\* two-proportion z-tests (Î± = 0.05)
 
 6\. \*\*Bootstrap:\*\* 1,000 resamples for assumption-free 95% confidence intervals
 
@@ -38,11 +38,11 @@ Cookie Cats tested moving its first progress gate from level 30 to level 40. Did
 
 \## Key Findings
 
-| Metric | gate\_30 | gate\_40 | Diff | p-value | Bootstrap 95% CI |
+| Metric | gate_30 | gate_40 | Diff | p-value | Bootstrap 95% CI |
 
 |---|---|---|---|---|---|
 
-| Day-1 retention | 44.82% | 44.23% | 0.59 pp | 0.074 | \[−0.04, 1.20] pp |
+| Day-1 retention | 44.82% | 44.23% | 0.59 pp | 0.074 | \[âˆ’0.04, 1.20] pp |
 
 | Day-7 retention | 19.02% | 18.20% | \*\*0.82 pp\*\* | \*\*0.0016\*\* | \*\*\[0.30, 1.33] pp\*\* |
 
@@ -50,21 +50,21 @@ Cookie Cats tested moving its first progress gate from level 30 to level 40. Did
 
 \- Moving the gate to level 40 \*\*significantly reduced 7-day retention by 0.82 pp (4.3% relative drop)\*\*.
 
-\- \~75% of the gap comes from players with 40–99 rounds — those who hit the level-40 gate in the test version.
+\- \~75% of the gap comes from players with 40â€“99 rounds â€” those who hit the level-40 gate in the test version.
 
 \- Heavy players (100+ rounds) were unaffected (71.1% vs 71.0%).
 
-\- Business impact: \~8,200 fewer day-7 retained players per 1M installs (range \~3,000–13,300).
+\- Business impact: \~8,200 fewer day-7 retained players per 1M installs (range \~3,000â€“13,300).
 
 
 
-!\[Day-7 bootstrap](images/bootstrap\_retention\_7.png)
+!\[Day-7 bootstrap](images/bootstrap_retention_7.png)
 
 
 
 \## Recommendation
 
-\*\*Do not ship gate\_40 — keep the gate at level 30.\*\* An earlier gate likely forces a break that reduces burnout and keeps players returning.
+\*\*Do not ship gate_40 â€” keep the gate at level 30.\*\* An earlier gate likely forces a break that reduces burnout and keeps players returning.
 
 
 
@@ -89,4 +89,6 @@ Audit randomization, add revenue data, test an intermediate gate (level 35), tra
 \## Tools
 
 Python (pandas, NumPy), SQL (DuckDB), statsmodels, SciPy, Matplotlib, Seaborn, Jupyter
+
+
 
